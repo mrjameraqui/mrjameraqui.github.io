@@ -1,5 +1,8 @@
 $(function(){
-  
+  var paused = false;
+  $("#popup").hide();
+$(".kanye").trigger('load');
+
 //   var lastClick;
 //   var lastDir = "up";
   
@@ -154,36 +157,46 @@ $(function(){
   
   
   $("#sun").click(function(){
+    $("#popup").show();
     $("#header").html("SUN");
     $("#content").html("<br>WHY DONT WE GO TO THE SUN AT NIGHT, IT WILL BE COOL THEN.");
+    $("#sun").attr("src", "kanye.png");
+    var audio = new Audio('music/sky.mp3');
+     audio.play();
   });
   
   $("#mercury").click(function(){
+    $("#popup").show();
     $("#header").html("MERCURY");
     $("#content").html("<br><b>Mass:</b> 10% of earth's mass<br><b>Gravity:</b> 37% of earth’s<br><b>Atmosphere:</b> Mercury's atmosphere contains small amounts of hydrogen, helium, and oxygen<br><b>Orbit Period:</b> 58d 15h 30m <br><b>Planet Day:</b> 88 days<br><b>Not so fun fact:</b> Mercury is the smallest planet in the Solar System");
   });
   
   $("#venus").click(function(){
+    $("#popup").show();
     $("#header").html("VENUS");
     $("#content").html("<br><b>Mass:</b> 81%<br><b>Gravity:</b> 90%<br><b>Atmosphere:</b>The atmosphere of Venus is very thick and is about 90 times more massive than Earth's atmosphere. It is mostly carbon dioxide gas<br><b>Orbit Period:</b> 225 days<br><b>Planet Day:</b>116d 18h<br><b>Not so fun fact:</b>Venus is so bright it is sometimes mistaken for a UFO");
   });
   
   $("#earth").click(function(){
+    $("#popup").show();
     $("#header").html("EARTH");
     $("#content").html("<b>Touch The SKY- Kanye West</b>");
   });
   
   $("#mars").click(function(){
+    $("#popup").show();
     $("#header").html("MARS");
     $("#content").html("<br><b>Mass:</b> 0.1x<br><b>Gravity:</b> 0.38x<br><b>Atmosphere:</b> 95% carbon dioxide, 3% nitrogen, 2% etc.<br><b>Orbit Period:</b> 687 days<br><b>Planet Day:</b> 1 day 40 mins<br><b>Fun Fact:</b> Mars has carbon dioxide snow clouds.");
   });
   
   $("#jupiter").click(function(){
+    $("#popup").show();
     $("#header").html("JUPITER");
     $("#content").html("<br><b>Mass:</b> 317x<br><b>Gravity:</b>  2.4x<br><b>Atmosphere:</b> 90% hydrogen 10% helium<br><b>Orbit Period:</b> 12 years<br><b>Planet Day:</b> 9.8 hours<br><b>Not so fun fact:</b>  Inside it’s atmosphere temperatures of around 70 degrees can be found.");
   });
   
    $("#saturn").click(function(){
+     $("#popup").show();
     $("#header").html("SATURN");
     $("#content").html("<br><b>Mass:</b> 17x<br><b>Gravity:</b> 1.06x<br><b>Atmosphere:</b> Saturn is made up approximately 75% hydrogen and 25% helium<br><b>Orbit Period:</b> 29 years.<br><b>Planet Day:</b> 10 hours.<br><b>Not so fun fact:</b> It’s ring is made out of ice chunks.");
   });
@@ -192,25 +205,28 @@ $(function(){
   
   
   $("#uranus").click(function(){
+    $("#popup").show();
     $("#header").html("URANUS");
     $("#content").html("<br><b>Mass:</b> 15x<br><b>Gravity:</b> 0.9 of earth.<br><b>Atmosphere:</b> Gas, the blue color is from methane.<br><b>Orbit Period:</b> 21 years.<br><b>Planet Day:</b> 17 hours 15 minutes<br><b>Not so fun fact:</b> Because of it's tilt Uranus's seasons take 20 years.");
   });
   
   
   $("#neptune").click(function(){
+    $("#popup").show();
     $("#header").html("NEPTUNE");
     $("#content").html("<br><b>Mass:</b> 17x<br><b>Gravity:</b> 1.2x<br><b>Atmosphere:</b> Neptune's atmosphere is made up predominantly of hydrogen and helium, with some methane. Methane makes it blue.<br><b>Orbit Period:</b> 165 years<br><b>Planet Day:</b> 16 hours.<br><b>Fun Fact:</b> Neptune's winds can reach 700 mph.");
   });
   
   $("#pluto").click(function(){
+    $("#popup").show();
     $("#header").html("PLUTO");
     $("#content").html("<br><b>Mass:</b> 0.00218 times the earth.<br><b>Gravity:</b> 1/12th the strength of earth's.<br><b>Atmosphere:</b> Has a nitrogen atmosphere that it is slowly loosing.<br><b>Orbit Period:</b> 249 earth years.<br><b>Planet Day:</b> 6.39 earth days.<br><b>Not so fun fact:</b> It is the second largest dwarf planet. It is one third frozen water.");
   });
   
-  var paused = false;
   
   
-  $("a").click(function(){
+  
+  $("a,#sun").click(function(){
     if (paused === false)
     {
        $("#mercury-orbit").removeClass("animate");
@@ -223,7 +239,6 @@ $(function(){
        $("#neptune-orbit").removeClass("animate");
        $("#pluto-orbit").removeClass("animate");
       //POPUP IS HIDDEN
-       $("#popup").show();
        $("a").html("START");
        paused = true;
     }
@@ -242,7 +257,6 @@ $(function(){
        $("a").html("RESET");
        paused = false;
     }
-    console.log(paused);
  });
   
   
